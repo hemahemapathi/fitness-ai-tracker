@@ -1,0 +1,174 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.notif-page {
+  background: #080808;
+  min-height: 100vh;
+  color: #fff;
+  font-family: inherit;
+}
+
+.notif-body {
+  padding: 100px 48px 80px;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.notif-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.notif-eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ada9a9;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.notif-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.notif-h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.notif-count-badge {
+  background: #00ff00;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 20px;
+  min-width: 24px;
+  text-align: center;
+}
+.notif-header-btns { display: flex; gap: 8px; }
+.notif-action-btn {
+  background: none;
+  border: 1px solid #2b2b2b;
+  border-radius: 8px;
+  color: #888787;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.notif-action-btn:hover { border-color: #333; color: #ccc; }
+.notif-action-btn.danger:hover { border-color: #ef4444; color: #ef4444; }
+.notif-action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Tabs */
+.notif-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.notif-tab {
+  background: #050505;
+  border: 1px solid #242424;
+  border-radius: 8px;
+  color: #9f9e9e;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.notif-tab:hover { color: #888; border-color: #333; }
+.notif-tab.active { background: #00ff0015; border-color: #00ff00; color: #00ff00; }
+
+/* Loading */
+.notif-loading {
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 0;
+}
+.notif-spinner {
+  width: 32px; height: 32px;
+  border: 2px solid #1a1a1a;
+  border-top-color: #00ff00;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Empty */
+.notif-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 60px 0;
+  text-align: center;
+}
+.notif-empty-icon { font-size: 2.5rem; }
+.notif-empty-text { font-size: 0.95rem; font-weight: 700; color: #333; }
+.notif-empty-sub { font-size: 0.75rem; color: #222; max-width: 280px; line-height: 1.5; }
+
+/* List */
+.notif-list { display: flex; flex-direction: column; gap: 8px; }
+
+.notif-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #0d0d0d;
+  border: 1px solid #111;
+  border-left: 3px solid var(--nc, #333);
+  border-radius: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+}
+.notif-card:hover { background: #111; }
+.notif-card.unread { border-color: var(--nc, #333); }
+.notif-card.unread { background: #0d0d0d; }
+
+.notif-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.notif-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.notif-card-msg {
+  font-size: 0.82rem;
+  color: #ccc;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.notif-card.unread .notif-card-msg { color: #fff; font-weight: 600; }
+.notif-card-time {
+  font-size: 0.65rem;
+  color: #696868;
+  letter-spacing: 0.5px;
+}
+.notif-unread-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .notif-body { padding: 90px 20px 60px; }
+  .notif-h1 { font-size: 1.5rem; }
+  .notif-tabs { gap: 6px; }
+  .notif-tab { font-size: 0.65rem; padding: 6px 10px; }
+}

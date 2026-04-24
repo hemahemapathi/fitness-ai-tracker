@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-you-page {
+  background: #000;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.about-you-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 620px;
+}
+
+.page-title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.progress-bar-wrap {
+  background: #222;
+  border-radius: 4px;
+  height: 5px;
+  margin-bottom: 6px;
+}
+
+.progress-bar-fill {
+  background: #00ff00;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.error-alert {
+  background: rgba(255, 50, 50, 0.08);
+  border: 1px solid rgba(255, 50, 50, 0.25);
+  color: #00ff00;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  padding: 10px 14px;
+  margin-bottom: 1rem;
+}
+
+.step-content {
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  color: #aaa;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.hint {
+  color: #555;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.input-group-custom label {
+  display: block;
+  color: #888;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: #070606;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #00ff00;
+}
+
+.form-input::placeholder {
+  color: #444;
+}
+
+.form-input option {
+  background: #111;
+  color: #fff;
+}
+
+.options-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.option-btn {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #aaa;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.option-btn:hover {
+  border-color: #00ff00;
+  color: #fff;
+}
+
+.option-btn.selected {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: #00ff00;
+  color: #00ff00;
+  font-weight: 600;
+}
+
+/* Summary step */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  background: #000;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-item span {
+  font-size: 0.75rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-item strong {
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.almost-done {
+  color: #555;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.almost-done span {
+  color: #00ff00;
+  font-weight: 600;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 11px 24px;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+.next-btn {
+  background: #00ff00;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 28px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-btn:hover {
+  background: #00e600;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

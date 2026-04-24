@@ -1,0 +1,441 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.workout-page {
+  background: #000;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.workout-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 110px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* ── Preview Screen ── */
+.workout-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.workout-header h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.neon-text {
+  color: #00ff00;
+  text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+}
+
+.workout-subtitle {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.preview-card {
+  background: #111;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.preview-card:hover { border-color: #333; }
+
+.preview-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(0,255,0,0.08);
+  border: 1px solid rgba(0,255,0,0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.preview-card h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 4px;
+}
+
+.preview-card p {
+  font-size: 0.75rem;
+  color: #00ff00;
+  font-weight: 700;
+}
+
+.start-btn {
+  display: block;
+  width: 100%;
+  background: #00ff00;
+  border: none;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 25px rgba(0,255,0,0.2);
+}
+
+.start-btn:hover {
+  background: #00e600;
+  box-shadow: 0 0 40px rgba(0,255,0,0.4);
+  transform: translateY(-2px);
+}
+
+/* ── Active Workout ── */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #111;
+  border-radius: 2px;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00ff00;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 8px rgba(0,255,0,0.5);
+}
+
+.workout-info {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.current-workout {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.workout-description {
+  font-size: 0.88rem;
+  color: #555;
+}
+
+/* Timer */
+.timer-section {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.timer-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #111;
+}
+
+.timer-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #00ff00;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  box-shadow: 0 0 15px rgba(0,255,0,0.3);
+  animation: spin 2s linear infinite;
+}
+
+.timer-number {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #00ff00;
+  text-shadow: 0 0 20px rgba(0,255,0,0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.timer-label {
+  font-size: 0.75rem;
+  color: #444;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Controls */
+.workout-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.control-btn {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.control-btn:hover { border-color: #444; }
+
+.pause-btn { border-color: #ff9500; color: #ff9500; }
+.pause-btn:hover { background: rgba(255,149,0,0.1); }
+
+.stop-btn { border-color: #ff4444; color: #ff4444; }
+.stop-btn:hover { background: rgba(255,68,68,0.1); }
+
+.skip-btn { border-color: #333; color: #666; }
+.skip-btn:hover { border-color: #555; color: #aaa; }
+
+.workout-progress {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+/* ── Complete Screen ── */
+.complete-screen {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.complete-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(0,255,0,0.1);
+  border: 2px solid rgba(0,255,0,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+}
+
+.complete-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background: #111;
+  border: 1px solid #1a1a1a;
+  border-radius: 14px;
+  padding: 24px 16px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #00ff00;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.restart-btn {
+  background: #00ff00;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 40px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.restart-btn:hover {
+  background: #00e600;
+  transform: translateY(-2px);
+}
+
+/* back btn */
+.back-btn {
+  background: transparent;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover { border-color: #444; color: #fff; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .workout-header h1 { font-size: 1.8rem; }
+  .timer-number { font-size: 3rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .workout-controls { flex-wrap: wrap; }
+}
+
+/* ── Feedback / Review ── */
+.complete-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.feedback-trigger-btn {
+  background: transparent;
+  border: 1px solid rgba(0,255,0,0.4);
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #00ff00;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 280px;
+}
+.feedback-trigger-btn:hover {
+  background: rgba(0,255,0,0.08);
+  border-color: #00ff00;
+}
+
+.feedback-box {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feedback-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.star-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.star {
+  font-size: 2.2rem;
+  color: #222;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+}
+.star.active { color: #f59e0b; }
+.star:hover  { transform: scale(1.2); }
+
+.review-input {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 12px 14px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.review-input:focus { border-color: #00ff00; }
+.review-input::placeholder { color: #444; }
+
+.feedback-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.skip-feedback-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.skip-feedback-btn:hover { border-color: #444; color: #888; }
+
+.submit-feedback-btn {
+  flex: 2;
+  background: #00ff00;
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.submit-feedback-btn:hover:not(:disabled) { background: #00e600; }
+.submit-feedback-btn:disabled { opacity: 0.4; cursor: not-allowed; }
