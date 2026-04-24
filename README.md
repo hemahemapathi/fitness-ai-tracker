@@ -1,4 +1,4 @@
-# 💪 FitTracker — Full Stack Fitness Web App
+# 💪 FitTracker AI — Full Stack Fitness Web App
 
 A complete, production-ready fitness tracking web application built with React, Node.js, Express, and MongoDB. FitTracker helps users track workouts, nutrition, daily activity, set goals, and get personalized AI coaching.
 
