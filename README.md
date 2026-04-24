@@ -6,7 +6,7 @@ A complete, production-ready fitness tracking web application built with React, 
 
 ## 🌐 Live Demo
 
-- **Live:** [FitTracker App](https://your-netlify-url.netlify.app)
+- **Live:** [FitTracker App](https://fitaitracker.netlify.app)
 
 ---
 
